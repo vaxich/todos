@@ -4,11 +4,13 @@ import thunkMiddleware, {ThunkDispatch} from 'redux-thunk'
 import {useDispatch} from "react-redux";
 import {authReducer} from "../Login/auth-reducer";
 import {todolistsReducer} from "../TodolistList/todolists-reducer";
+import {taskReducer} from "../TodolistList/Task/taskReducer";
 
 // объединяя reducer-ы с помощью combineReducers,
 // мы задаём структуру нашего единственного объекта-состояния
 const rootReducer = combineReducers( {
     todolists:todolistsReducer,
+    tasks: taskReducer,
     app: appReducer,
     auth:authReducer
 })

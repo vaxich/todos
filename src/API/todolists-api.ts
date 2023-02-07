@@ -28,11 +28,17 @@ export const authAPI = {
     }
 }
 export const todolistsAPI = {
-    getTodolists() {
+    getTodolists() { //получить тудулисты
         const promise = instance.get<TodolistType[]>('todo-lists');
-        console.log(promise)
+
         return promise;
     },
+    getTasks(todolistId: string) { // получить таски
+        return instance.get<GetTasksResponse>(`todo-lists/${todolistId}/tasks`);
+    },
+    updateTask(todolistId: string, taskId: string, model: UpdateTaskModelType) {
+        return instance.put<ResponseType<TaskType>>(`todo-lists/${todolistId}/tasks/${taskId}`, model);
+    }
 }
 
 

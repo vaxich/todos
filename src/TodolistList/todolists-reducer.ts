@@ -53,8 +53,9 @@ export type TodolistDomainType = TodolistType & {
     entityStatus: RequestStatusType
 }
 
+export type GetTodolistsActionType = ReturnType<typeof getTodolistsAC>;
 type ActionsType =
     | ReturnType<typeof getTodolistsAC>
-
+    | GetTodolistsActionType
 
 type ThunkDispatch = Dispatch<ActionsType | SetAppStatusActionType | SetAppErrorActionType>
